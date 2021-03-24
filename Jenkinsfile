@@ -3,7 +3,8 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                echo 'test'
+                echo '** This is a test echo statement.'
+                ls
             }
         }
     }
