@@ -13,7 +13,12 @@ pipeline {
                 bat('echo This tests sh.')
                 bat('git --version')
                 bat('docker -v')
-                bat('python --version')
+                try{
+                    bat('python --version')
+                }catch(Exception ex){
+                    sh('python --version')
+                }
+                echo System.getProperty('os.name')
             }
         }
     }
