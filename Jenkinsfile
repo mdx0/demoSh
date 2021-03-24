@@ -17,8 +17,7 @@ pipeline {
                     try{
                         sh('python --version')
                     }catch(e){
-                        echo "** Caught an error - regarding sh."
-                        echo e.toString()
+                        echo "** Caught an error - regarding sh.\n" + e.toString()
                         bat('python --version')
                     }
                     bat('dir')
