@@ -15,9 +15,11 @@ pipeline {
                     bat('git --version')
                     bat('docker -v')
                     try{
-                        bat('python --version')
-                    }catch(Exception ex){
                         sh('python --version')
+                    }catch(e){
+                        echo "** Caught an error - regarding sh."
+                        echo e.toString()
+                        bat('python --version')
                     }
                     echo System.getProperty('os.name')
                 }
