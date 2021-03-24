@@ -21,6 +21,8 @@ pipeline {
                         echo e.toString()
                         bat('python --version')
                     }
+                    bat('dir')
+                    bat('sh start.sh')
                     echo System.getProperty('os.name')
                 }
             }
