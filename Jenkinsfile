@@ -5,6 +5,7 @@ pipeline {
             steps {
                 echo '** This is a test echo statement.'
                 bat('echo This tests sh.')
+                bat('docker -v')
             }
         }
     }
