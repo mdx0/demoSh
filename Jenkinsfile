@@ -4,7 +4,7 @@ pipeline {
         stage('build') {
             steps {
                 echo '** This is a test echo statement.'
-                dir
+                sh('echo This tests sh.')
             }
         }
     }
