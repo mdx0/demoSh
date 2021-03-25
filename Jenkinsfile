@@ -17,7 +17,11 @@ pipeline {
                         sh('echo This tests sh.')
                         sh('git --version')
                         sh('docker -v')
-                        sh('python --version')
+                        try{
+                            sh('python --version')
+                        }catch(e){
+                            sh('python3 --version')
+                        }
                         sh('dir')
                         sh('./start.sh')
                     } else {
