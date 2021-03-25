@@ -17,6 +17,7 @@ pipeline {
                         sh('echo This tests sh.')
                         sh('git --version')
                         sh('docker -v')
+                        sh('java -version')
                         try{
                             sh('python --version')
                         }catch(e){
@@ -28,6 +29,7 @@ pipeline {
                         bat('echo This tests sh.')
                         bat('git --version')
                         bat('docker -v')
+                        bat('java -version')
                         bat('python --version')
                         bat('dir')
                         bat('sh start.sh')
