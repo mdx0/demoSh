@@ -3,17 +3,24 @@ pipeline {
 
     environment {
         TEST_SURNAME = "Smith"
+        OS_NAME = 'unknown'
     }
 
     stages {
-        stage('build') {
+        stage('Hello') {
             steps {
                 script{
-                    def osName = System.getProperty('os.name')
                     echo '** This is a test echo statement.'
                     echo "** Hello Mr ${TEST_SURNAME}"
-                    echo "OS is: " + osName
-                    if (osName == "Linux") {
+                }
+            }
+        }
+        stage('info') {
+            steps {
+                script{
+                    $OS_NAME = System.getProperty('os.name')
+                    echo "OS is: " + $OS_NAME
+                    if ($OS_NAME == "Linux") {
                         sh('echo This tests sh.')
                         sh('./info.sh')
                         sh('./start.sh')
@@ -24,6 +31,12 @@ pipeline {
                         bat('sh start.sh')
                         bat('sh buildJava.sh')
                     }
+                }
+            }
+        }
+        stage('build') {
+            steps {
+                script{
                 }
             }
         }
