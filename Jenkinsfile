@@ -15,24 +15,14 @@ pipeline {
                     echo "OS is: " + osName
                     if (osName == "Linux") {
                         sh('echo This tests sh.')
-                        sh('git --version')
-                        sh('docker -v')
-                        sh('java -version')
-                        try{
-                            sh('python --version')
-                        }catch(e){
-                            sh('python3 --version')
-                        }
-                        sh('dir')
+                        sh('./info.sh')
                         sh('./start.sh')
+                        sh('./buildJava.sh')
                     } else {
-                        bat('echo This tests sh.')
-                        bat('git --version')
-                        bat('docker -v')
-                        bat('java -version')
-                        bat('python --version')
-                        bat('dir')
+                        bat('echo This tests bat.')
+                        bat('sh info.sh')
                         bat('sh start.sh')
+                        bat('sh buildJava.sh')
                     }
                 }
             }
